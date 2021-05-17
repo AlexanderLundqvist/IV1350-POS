@@ -14,9 +14,9 @@ public class Main {
      * @param args The application does not take any command line paramters
      */
     public static void main(String[] args){
-        ExternalInventorySystem inventorySystem = new ExternalInventorySystem();
-        Controller contr = new Controller(inventorySystem);
-        View view = new View(contr);
+        ExternalSystemsHandler externalSystems = new ExternalSystemsHandler();
+        Controller controller = new Controller(externalSystems);
+        View view = new View(controller);
         view.runFakeExecution();
     }
 }

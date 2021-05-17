@@ -8,12 +8,17 @@ import java.util.List;
  * @author Alexander Lundqvist
  */
 public class Receipt {
+    private SaleDTO saleInfo;
     
     /**
      * 
-     * @param finishedSale determines what shall be stored in the receipt.
+     * @param saleInfo determines what shall be stored in the receipt.
      */
-    public Receipt(Sale finishedSale){
-        
+    public Receipt(SaleDTO saleInfo){
+        this.saleInfo = saleInfo;
+    }
+    
+    public SaleDTO getSaleInfo(){
+        return saleInfo;
     }
 }

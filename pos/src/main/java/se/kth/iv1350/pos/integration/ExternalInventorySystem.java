@@ -3,6 +3,7 @@ package se.kth.iv1350.pos.integration;
 import se.kth.iv1350.pos.model.GroceryItem;
 import java.util.List;
 import java.util.ArrayList;
+import se.kth.iv1350.pos.model.SaleDTO;
 
 /**
  * Represents the inventory system for the grocery store. It only contains a
@@ -29,7 +30,7 @@ public class ExternalInventorySystem {
     /**
      * Updates the inventory. Not implemented for now.
      */
-    public void UpdateInventory(){
+    public void UpdateInventory(SaleDTO saleinfo){
         
     }
     
