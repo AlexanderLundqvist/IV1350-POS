@@ -14,6 +14,7 @@ public class Sale {
     private LocalTime timeOfSale;
     private LocalDate dateOfSale;
     private Receipt receipt;
+    private Printer printer;
     private List<GroceryItem> addedItems = new ArrayList<>();
     private Discount discount;
     private double runningTotal;
@@ -25,11 +26,12 @@ public class Sale {
     /**
      * Creates a new instance and saves the time of the sale.
      */
-    public Sale() {
+    public Sale(Printer printer) {
         this.timeOfSale = LocalTime.now();
         this.dateOfSale = LocalDate.now();
         this.runningTotal = 0;
         this.totalVAT = 0;
+        this.printer = printer;
     }
     
     /**
@@ -51,7 +53,9 @@ public class Sale {
     private boolean checkExistingItem(GroceryItemDTO item, int quantity) {
         for (int i = 0; i < addedItems.size(); i++){
             if (addedItems.get(i).getItemIdentifier() == item.getItemIdentifier()){
-                addedItems.get(i).setQuantity(quantity);
+                addedItems.get(i).setQuantity(quantity + addedItems.get(i).getQuantity());
+                updateRunningTotal(item, quantity);
+                updateTotalVAT(item, quantity);
                 return true;
             }
         }
@@ -67,22 +71,36 @@ public class Sale {
         totalVAT += (item.getPrice()*quantity)*(item.getVAT()/100);
     }
     
-    
+    /**
+     * Standard getter for retrieveing the running total of the sale
+     * @return the running total
+     */
     public double getRunningTotal() {
         return this.runningTotal;
     }
     
-    
+    /**
+     * Standard getter for the total VAT of the sale
+     * @return the total VAT
+     */
     public double getTotalVAT() {
         return this.totalVAT;
     }
    
     
     private void updateChange(double amountPaid){
-        change = amountPaid - getRunningTotal();
+        change = (double) Math.round((amountPaid - getRunningTotal()) * 100) / 100;
     }
     
+    public void addDiscount(String customerId) {
+        
+    }
     
+    /**
+     * Ends the current sale
+     * @param amountPaid is the amount that the customer paid
+     * @return the {@link SaleDTO}
+     */
     public SaleDTO endSale(double amountPaid) {
         updateChange(amountPaid);
         saleInfo = new SaleDTO(timeOfSale, dateOfSale, addedItems, 
@@ -90,7 +108,11 @@ public class Sale {
         return saleInfo;
     }
     
+    /**
+     * Creates a receipt and also sends it to the printer
+     */
     public void createReceipt(){
         receipt = new Receipt(saleInfo);
+        printer.printReceipt(receipt);
     }
 }

@@ -37,6 +37,8 @@ public class Printer {
               System.out.println("File already exists.");
             }
             FileWriter receiptWriter = new FileWriter("receipt.txt");
+            receiptWriter.write(receipt.getName() + "\n");
+            receiptWriter.write(receipt.getAddress() + "\n");
             receiptWriter.write("Receipt nr. 0001\n");
             for(int i = 0; i < addedItems.size(); i++)  {
                 receiptWriter.write("\nItem: " + addedItems.get(i).getItemName() + "\n");

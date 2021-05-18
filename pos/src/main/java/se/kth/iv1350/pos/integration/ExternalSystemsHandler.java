@@ -8,6 +8,7 @@ package se.kth.iv1350.pos.integration;
 public class ExternalSystemsHandler {
     private ExternalInventorySystem inventory;
     private ExternalAccountingSystem accounting;
+    private CustomerDatabaseSystem customerDatabase;
     
     /**
      * Initializes the external systems
@@ -15,6 +16,7 @@ public class ExternalSystemsHandler {
     public ExternalSystemsHandler() {
         this.inventory = new ExternalInventorySystem();
         this.accounting = new ExternalAccountingSystem();
+        this.customerDatabase = new CustomerDatabaseSystem();
     }
     
     /**
@@ -31,5 +33,13 @@ public class ExternalSystemsHandler {
      */
     public ExternalAccountingSystem getAccounting() {
         return accounting;
+    }
+    
+    /**
+     * Standard getter for retrieving the customer database
+     * @return the customerDatabase
+     */
+    public CustomerDatabaseSystem getCustomerDatabase() {
+        return customerDatabase;
     }
 }

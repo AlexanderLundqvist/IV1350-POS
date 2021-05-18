@@ -9,9 +9,6 @@ import se.kth.iv1350.pos.model.SaleDTO;
  * Represents the inventory system for the grocery store. It only contains a
  * hardcoded inventory for now.
  * @author Alexander Lundqvist
- * 
- * public GroceryItemDTO(int itemIdentifier, String itemName,
-            float price, int vatRate, String itemDescription){
  */
 public class ExternalInventorySystem {
     private List<GroceryItem> inventory = new ArrayList<>();
@@ -36,7 +33,6 @@ public class ExternalInventorySystem {
     
     /**
      * Checks the current inventory if a certain item exists.
-     * 
      * @param itemIdentifier is the desired item to check
      * @return Returns true or false depending on outcome
      */
@@ -51,7 +47,6 @@ public class ExternalInventorySystem {
     /**
      * Finds item from inventory from input identifier, returns a properly
      * created grocery item that can be used.
-     * 
      * @param itemIdentifier determines what item to fetch
      * @return Returns a DTO for a grocery item
      */

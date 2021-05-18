@@ -30,7 +30,7 @@ public class Controller {
      * Starts a new sale. This method must be called before doing anything else during a sale. 
      */
     public void startSale() {
-        sale = new Sale();
+        sale = new Sale(printer);
     }
     
     /**
@@ -51,7 +51,7 @@ public class Controller {
             );
         }
         else{
-            System.out.println("CONTROLLER: ERROR IN ADDING!\n");
+            System.out.println("Item not found!\n");
         }      
     }
     

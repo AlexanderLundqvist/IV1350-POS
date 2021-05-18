@@ -1,0 +1,38 @@
+SuperDuperMart
+4 Privet Drive
+Receipt nr. 0001
+
+Item: Bread
+Quantity: 2
+Price: 2.5
+VAT: 6
+Description: Freshly baked bread.
+
+Item: Milk
+Quantity: 3
+Price: 3.5
+VAT: 6
+Description: Fat-free dairy milk.
+
+Item: Cheese
+Quantity: 1
+Price: 7.75
+VAT: 12
+Description: Aged cheese from france.
+
+Item: Sausage
+Quantity: 6
+Price: 5.25
+VAT: 12
+Description: Italian sausage.
+
+Item: Beer
+Quantity: 2
+Price: 13.37
+VAT: 24
+Description: A sixpack of premium beer.
+
+Total cost of sale: 81.49
+Total VAT of sale: 0.0
+Amount paid: 100.0
+Change back: 18.51
