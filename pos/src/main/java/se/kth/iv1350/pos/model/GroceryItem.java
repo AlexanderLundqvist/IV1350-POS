@@ -74,7 +74,7 @@ public class GroceryItem {
      * Returns the VAT of the item.
      * @return Returns the vatRate.
      */
-    public int getVAT(){
+    public double getVAT(){
         return item.getVAT();
     }
     

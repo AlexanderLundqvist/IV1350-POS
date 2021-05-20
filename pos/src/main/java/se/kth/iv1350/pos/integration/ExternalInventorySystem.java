@@ -56,12 +56,20 @@ public class ExternalInventorySystem {
             if(inventory.get(i).getItemIdentifier() == itemIdentifier){
                 String name = inventory.get(i).getItemName();
                 double price = inventory.get(i).getPrice();
-                int vat = inventory.get(i).getVAT();
+                double vat = inventory.get(i).getVAT();
                 String description = inventory.get(i).getItemDescription();
                 wantedItem = new GroceryItemDTO(itemIdentifier, name, price, vat, description);
                 return wantedItem;
             }  
         }
         return null;
+    }
+    
+    /**
+     * Standard getter for retrieveing the inventory list of all grocery items
+     * @return the current inventory
+     */
+    public List<GroceryItem> getInventory() {
+        return this.inventory;
     }
 }

@@ -23,6 +23,6 @@ public class ExternalAccountingSystem {
      * @param saleInfo tells how the accounting system should be updated. 
      */
     public void updateAccounting(SaleDTO saleInfo){
-        System.out.println("Accounting system has been updated.");
+        System.out.println("\n>>> Accounting system has been updated.");
     }
 }

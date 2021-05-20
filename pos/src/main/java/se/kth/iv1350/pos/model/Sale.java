@@ -1,5 +1,7 @@
 package se.kth.iv1350.pos.model;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import se.kth.iv1350.pos.integration.*;
 import java.time.LocalTime;
 import java.time.LocalDate;
@@ -25,6 +27,7 @@ public class Sale {
     
     /**
      * Creates a new instance and saves the time of the sale.
+     * @param printer is the newly created printer
      */
     public Sale(Printer printer) {
         this.timeOfSale = LocalTime.now();
@@ -63,12 +66,12 @@ public class Sale {
     }
     
     private void updateRunningTotal(GroceryItemDTO item, int quantity) {
-        runningTotal += (item.getPrice()*quantity)*((item.getVAT()/100)+1);
+        runningTotal += new BigDecimal((item.getPrice()*quantity)*((item.getVAT()/100)+1)).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
     
     
     private void updateTotalVAT(GroceryItemDTO item, int quantity) {
-        totalVAT += (item.getPrice()*quantity)*(item.getVAT()/100);
+        totalVAT += new BigDecimal((item.getPrice()*quantity)*(item.getVAT()/100)).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
     
     /**
@@ -76,6 +79,7 @@ public class Sale {
      * @return the running total
      */
     public double getRunningTotal() {
+        this.runningTotal = change = (double) Math.round((this.runningTotal) * 100) / 100;
         return this.runningTotal;
     }
     
@@ -92,8 +96,13 @@ public class Sale {
         change = (double) Math.round((amountPaid - getRunningTotal()) * 100) / 100;
     }
     
-    public void addDiscount(String customerId) {
-        
+    /**
+     * Creates a new discount for the sale and applies it
+     * @param customerID 
+     */
+    public void addDiscount(String customerID) {
+        this.discount = new Discount(customerID, addedItems);
+        this.runningTotal *= discount.calculateTotalDiscount();
     }
     
     /**

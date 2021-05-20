@@ -8,7 +8,7 @@ public class GroceryItemDTO {
     private final int itemIdentifier;
     private final String itemName;
     private final double price;
-    private final int vatRate;
+    private final double vatRate;
     private final String itemDescription;
     
     /**
@@ -21,7 +21,7 @@ public class GroceryItemDTO {
      * @param itemDescription describes item
      */
     public GroceryItemDTO(int itemIdentifier, String itemName,
-            double price, int vatRate, String itemDescription){
+            double price, double vatRate, String itemDescription){
         this.itemIdentifier = itemIdentifier;
         this.itemName = itemName;
         this.price = price;
@@ -57,7 +57,7 @@ public class GroceryItemDTO {
      * Retrieves the VAT of the item.
      * @return Returns the vatRate of the item
      */
-    public int getVAT(){
+    public double getVAT(){
         return vatRate;
     }
     

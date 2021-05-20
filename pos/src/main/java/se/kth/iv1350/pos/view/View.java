@@ -41,15 +41,14 @@ public class View {
         
         controller.addNewItem(44444, 5);
         
-        //controller.addDiscount("197001021234");
+        controller.addDiscount("197001021234");
         
-        System.out.println("\nTotal amount to pay is: " + controller.getPaymentDetails());
+        System.out.println("\nTotal amount to pay is: " + controller.getPaymentDetails()+ " Euro");
         
         controller.endSale(staticPayment);
         
-        System.out.println("\nChange back is: " + controller.displayChange() + "\n");
+        System.out.println("\nChange back is: " + controller.displayChange() + " Euro\n");
         
-        // Empty function, could also print to console
         controller.getReceipt();
         
         System.out.println("\n*************************************************");

@@ -29,6 +29,7 @@ public class Registry {
      */
     public void updateBalance(double moneyTransaction){
         this.balance = this.balance + moneyTransaction;
+        System.out.println("\nThe curent balance in the registry is: " + this.balance + " Euro");
     }
     
 
