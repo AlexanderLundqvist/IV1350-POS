@@ -42,5 +42,8 @@ class ExternalInventorySystemTest {
         String actualItemName = inventory.fetchItem(44444).getItemName();
         assertEquals(expectedItemName, actualItemName, "Found item didn't match!");
         
+        expectedItemName = "Nothing";
+        actualItemName = inventory.fetchItem(44444).getItemName();
+        assertNotEquals(expectedItemName, actualItemName, "Found item did match, which it shouldn't!");
     }
 }

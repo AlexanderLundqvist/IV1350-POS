@@ -1,14 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.kth.iv1350.pos.model;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import se.kth.iv1350.pos.integration.ExternalInventorySystem;
+import se.kth.iv1350.pos.integration.Printer;
+
 /**
- *
+ * This class tests the Sale class
  * @author Alexander
  */
-public class SaleTest {
+class SaleTest {
+    Sale sale;
+    Printer printer;
+    
+    @BeforeEach
+    void setUp() {
+        printer = new Printer();
+        sale = new Sale(printer);
+    }
+
+    @AfterEach
+    void tearDown() {
+        printer = null;
+        sale = null;
+    }
+    
+    //@Test
     
 }
