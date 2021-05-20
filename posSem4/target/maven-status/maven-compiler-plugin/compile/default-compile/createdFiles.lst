@@ -1,0 +1,16 @@
+se\kth\iv1350\pos\model\Registry.class
+se\kth\iv1350\pos\view\View.class
+se\kth\iv1350\pos\model\Receipt.class
+se\kth\iv1350\pos\integration\ExternalSystemsHandler.class
+se\kth\iv1350\pos\integration\CustomerDatabaseSystem.class
+se\kth\iv1350\pos\integration\ExternalAccountingSystem.class
+se\kth\iv1350\pos\model\SaleDTO.class
+se\kth\iv1350\pos\integration\ExternalInventorySystem.class
+se\kth\iv1350\pos\controller\Controller.class
+se\kth\iv1350\pos\integration\Customer.class
+se\kth\iv1350\pos\startup\Main.class
+se\kth\iv1350\pos\model\GroceryItem.class
+se\kth\iv1350\pos\model\Sale.class
+se\kth\iv1350\pos\model\Discount.class
+se\kth\iv1350\pos\integration\GroceryItemDTO.class
+se\kth\iv1350\pos\integration\Printer.class
