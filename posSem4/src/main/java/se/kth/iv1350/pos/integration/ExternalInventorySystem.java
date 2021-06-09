@@ -1,5 +1,6 @@
 package se.kth.iv1350.pos.integration;
 
+import java.sql.SQLException;
 import se.kth.iv1350.pos.model.GroceryItem;
 import java.util.List;
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class ExternalInventorySystem {
     }
     
     /**
+     * DEPRECATED for seminar 4
+     * 
      * Checks the current inventory if a certain item exists.
      * @param itemIdentifier is the desired item to check
      * @return Returns true or false depending on outcome
@@ -50,8 +53,14 @@ public class ExternalInventorySystem {
      * @param itemIdentifier determines what item to fetch
      * @return Returns a DTO for a grocery item
      */
-    public GroceryItemDTO fetchItem(int itemIdentifier){
-        GroceryItemDTO wantedItem;
+    public GroceryItemDTO fetchItem(int itemIdentifier) throws InvalidItemIDException, InventoryFailureException{
+        GroceryItemDTO wantedItem = null;
+        
+        // Simulated database error
+        if (itemIdentifier == 12121){
+            throw new InventoryFailureException("Could not connect to database");
+        }
+        
         for(int i = 0; i < inventory.size(); i++){
             if(inventory.get(i).getItemIdentifier() == itemIdentifier){
                 String name = inventory.get(i).getItemName();
@@ -62,7 +71,7 @@ public class ExternalInventorySystem {
                 return wantedItem;
             }  
         }
-        return null;
+        throw new InvalidItemIDException(itemIdentifier);
     }
     
     /**

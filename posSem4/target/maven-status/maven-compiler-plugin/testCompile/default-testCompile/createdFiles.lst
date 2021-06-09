@@ -1,3 +1,5 @@
 se\kth\iv1350\pos\model\SaleTest.class
+se\kth\iv1350\pos\integration\InventoryFailureExceptionTest.class
 se\kth\iv1350\pos\integration\ExternalInventorySystemTest.class
+se\kth\iv1350\pos\integration\InvalidItemIDExceptionTest.class
 se\kth\iv1350\pos\model\DiscountTest.class

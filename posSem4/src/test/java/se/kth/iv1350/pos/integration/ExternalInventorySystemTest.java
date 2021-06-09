@@ -37,7 +37,7 @@ class ExternalInventorySystemTest {
     }
     
     @Test
-    public void fetchItem(){
+    public void fetchItem() throws InvalidItemIDException{
         String expectedItemName = "Sausage";
         String actualItemName = inventory.fetchItem(44444).getItemName();
         assertEquals(expectedItemName, actualItemName, "Found item didn't match!");

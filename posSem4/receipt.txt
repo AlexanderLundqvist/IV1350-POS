@@ -11,37 +11,9 @@ Item: Bread
   VAT: 6.0%
   Description: Freshly baked bread.
 
-Item: Milk
-  Quantity: 3 units
-  Price per item: 3.5 Euro
-  Total price: 10.5 Euro
-  VAT: 6.0%
-  Description: Fat-free dairy milk.
-
-Item: Cheese
-  Quantity: 1 units
-  Price per item: 7.75 Euro
-  Total price: 7.75 Euro
-  VAT: 12.0%
-  Description: Aged cheese from france.
-
-Item: Sausage
-  Quantity: 6 units
-  Price per item: 5.25 Euro
-  Total price: 31.5 Euro
-  VAT: 12.0%
-  Description: Italian sausage.
-
-Item: Beer
-  Quantity: 2 units
-  Price per item: 13.37 Euro
-  Total price: 26.74 Euro
-  VAT: 24.0%
-  Description: A sixpack of premium beer.
-
-> Total cost of sale: 84.2 Euro
-> Total VAT of sale: 12.06 Euro
+> Total cost of sale: 5.3 Euro
+> Total VAT of sale: 0.3 Euro
 > Amount paid: 100.0 Euro
-> Change back: 15.8 Euro
+> Change back: 94.7 Euro
 *************************************************
 *************************************************

@@ -1,10 +1,15 @@
 package se.kth.iv1350.pos.controller;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import se.kth.iv1350.pos.model.*;
 import se.kth.iv1350.pos.integration.*;
+import se.kth.iv1350.pos.util.LogHandler;
+import se.kth.iv1350.pos.view.TotalRevenueView;
 
 /**
- *
+ * Controller class that handles function calls between view and model.
  * @author Alexander Lundqvist
  */
 public class Controller {
@@ -15,17 +20,20 @@ public class Controller {
     private SaleDTO saleInfo;
     private Registry registry;
     private Printer printer;
+    private LogHandler logger;
+    private List<SaleObserver> observers = new ArrayList<>();
     
     /**
      * Initializes the controler with the external systems. Only done once.
      * @param externalSystems contains the systems
      */
-    public Controller(ExternalSystemsHandler externalSystems){
+    public Controller(ExternalSystemsHandler externalSystems) throws IOException{
         this.inventory = externalSystems.getInventory();
         this.accounting = externalSystems.getAccounting();
         this.customerDatabase = externalSystems.getCustomerDatabase();
         this.registry = new Registry();
         this.printer = new Printer();
+        this.logger = new LogHandler();
     }
     
     /**
@@ -33,6 +41,7 @@ public class Controller {
      */
     public void startSale() {
         sale = new Sale(printer);
+        sale.addObservers(observers);
     }
     
     /**
@@ -40,21 +49,22 @@ public class Controller {
      * 
      * @param itemIdentifier the unique identifying number for the item
      * @param quantity specifies how many of the item
-     */
-    public void addNewItem(int itemIdentifier, int quantity) {
-       if (inventory.doesItemExist(itemIdentifier) == true){
-            sale.addItem(inventory.fetchItem(itemIdentifier), quantity);
+     */ 
+    public void addNewItem(int itemIdentifier, int quantity) throws InvalidItemIDException, OperationFailureException {
+        try {
+            GroceryItemDTO item = inventory.fetchItem(itemIdentifier);
+            sale.addItem(item, quantity);
             System.out.println(
-                    "Item: " + inventory.fetchItem(itemIdentifier).getItemName() + "\n" +
-                    "Description: " + inventory.fetchItem(itemIdentifier).getItemDescription() + "\n" +        
-                    "Quantity: " + quantity + " units\n" +
-                    "Price: " + inventory.fetchItem(itemIdentifier).getPrice()*quantity + " Euro\n" +
-                    "VAT: " + inventory.fetchItem(itemIdentifier).getVAT() + "%\n" 
+                "Item: " + inventory.fetchItem(itemIdentifier).getItemName() + "\n" +
+                "Description: " + inventory.fetchItem(itemIdentifier).getItemDescription() + "\n" +        
+                "Quantity: " + quantity + " units\n" +
+                "Price: " + inventory.fetchItem(itemIdentifier).getPrice()*quantity + " Euro\n" +
+                "VAT: " + inventory.fetchItem(itemIdentifier).getVAT() + "%\n" 
             );
-        }
-        else{
-            System.out.println(">>> Item not found!\n");
-        }      
+        } catch(InvalidItemIDException | InventoryFailureException ex) {
+            logger.logException(ex); // Logs both types for now
+            throw new OperationFailureException("Could not register the item", ex);
+        } 
     }
     
     /**
@@ -108,4 +118,13 @@ public class Controller {
             System.out.println("\n>>> Customer isn't elegible for discount!\n");
         } 
     }
+    
+    /**
+     * Adds a new observer to the observer list
+     * @param observer is the observer to be added
+     */
+    public void addObserver(SaleObserver observer){
+        observers.add(observer);
+    }
+    
 }

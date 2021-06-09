@@ -23,7 +23,7 @@ public class Sale {
     private double totalVAT;
     private double change;
     private SaleDTO saleInfo;
-    
+    private List<SaleObserver> observerList = new ArrayList<>();
     
     /**
      * Creates a new instance and saves the time of the sale.
@@ -114,6 +114,7 @@ public class Sale {
         updateChange(amountPaid);
         saleInfo = new SaleDTO(timeOfSale, dateOfSale, addedItems, 
                 runningTotal, totalVAT, amountPaid, change);
+        notifyObservers();
         return saleInfo;
     }
     
@@ -123,5 +124,20 @@ public class Sale {
     public void createReceipt(){
         receipt = new Receipt(saleInfo);
         printer.printReceipt(receipt);
+    }
+    
+    /**
+     * Adds an observewr to the observer list
+     * @param observer 
+     */
+    public void addObservers(List<SaleObserver> observers) {
+        observerList.addAll(observers);
+    }
+    
+    
+    private void notifyObservers() {
+        for (SaleObserver observer : observerList) {
+            observer.newRunningTotal(getRunningTotal());
+        }
     }
 }
