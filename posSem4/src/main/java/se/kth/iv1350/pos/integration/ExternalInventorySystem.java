@@ -53,6 +53,15 @@ public class ExternalInventorySystem {
      * @param itemIdentifier determines what item to fetch
      * @return Returns a DTO for a grocery item
      */
+    
+    /**
+     * Finds item from inventory from input identifier, returns a properly
+     * created grocery item that can be used. 
+     * @param itemIdentifier determines what item to fetch
+     * @return Returns a DTO for a grocery item
+     * @throws InvalidItemIDException for any invalid item identifier
+     * @throws InventoryFailureException for simulated database error
+     */
     public GroceryItemDTO fetchItem(int itemIdentifier) throws InvalidItemIDException, InventoryFailureException{
         GroceryItemDTO wantedItem = null;
         
