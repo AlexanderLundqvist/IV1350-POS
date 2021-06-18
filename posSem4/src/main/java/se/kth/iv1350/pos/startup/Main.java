@@ -11,9 +11,16 @@ import se.kth.iv1350.pos.integration.*;
  * @author Zander
  */
 public class Main {
+    
     /**
      * Main method used to start application
+     * 
      * @param args The application does not take any command line paramters
+     * @throws IOException
+     * @throws InvalidItemIDException
+     * @throws InventoryFailureException
+     * @throws SQLException
+     * @throws OperationFailureException 
      */
     public static void main(String[] args) throws IOException, InvalidItemIDException, InventoryFailureException, SQLException, OperationFailureException{
         try {

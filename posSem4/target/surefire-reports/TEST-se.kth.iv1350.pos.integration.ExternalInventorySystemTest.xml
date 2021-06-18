@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="se.kth.iv1350.pos.integration.ExternalInventorySystemTest" time="0.068" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="se.kth.iv1350.pos.integration.ExternalInventorySystemTest" time="0.048" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="16"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="user.country" value="SE"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-16.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\ALEXAN~1\AppData\Local\Temp\surefire15467046300619927229\surefirebooter5698737944118755906.jar C:\Users\Alexander\AppData\Local\Temp\surefire15467046300619927229 2021-06-09T22-27-05_912-jvmRun1 surefire8121123480042395274tmp surefire_05072958232937488203tmp"/>
+    <property name="sun.java.command" value="C:\Users\ALEXAN~1\AppData\Local\Temp\surefire8101684480226160856\surefirebooter1885867272460177601.jar C:\Users\Alexander\AppData\Local\Temp\surefire8101684480226160856 2021-06-10T17-00-51_653-jvmRun1 surefire12909753758525803750tmp surefire_05336245633052894233tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Alexander\Github\IV1350-POS\posSem4\target\test-classes;C:\Users\Alexander\Github\IV1350-POS\posSem4\target\classes;C:\Users\Alexander\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.0-M1\junit-jupiter-5.8.0-M1.jar;C:\Users\Alexander\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.0-M1\junit-jupiter-api-5.8.0-M1.jar;C:\Users\Alexander\.m2\repository\org\apiguardian\apiguardian-api\1.1.1\apiguardian-api-1.1.1.jar;C:\Users\Alexander\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Alexander\.m2\repository\org\junit\platform\junit-platform-commons\1.8.0-M1\junit-platform-commons-1.8.0-M1.jar;C:\Users\Alexander\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.0-M1\junit-jupiter-params-5.8.0-M1.jar;C:\Users\Alexander\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.0-M1\junit-jupiter-engine-5.8.0-M1.jar;C:\Users\Alexander\.m2\repository\org\junit\platform\junit-platform-engine\1.8.0-M1\junit-platform-engine-1.8.0-M1.jar;C:\Users\Alexander\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.4.20\kotlin-stdlib-jdk8-1.4.20.jar;C:\Users\Alexander\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.4.20\kotlin-stdlib-1.4.20.jar;C:\Users\Alexander\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.4.20\kotlin-stdlib-common-1.4.20.jar;C:\Users\Alexander\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\Alexander\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.4.20\kotlin-stdlib-jdk7-1.4.20.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\ALEXAN~1\AppData\Local\Temp\surefire15467046300619927229\surefirebooter5698737944118755906.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ALEXAN~1\AppData\Local\Temp\surefire8101684480226160856\surefirebooter1885867272460177601.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="16.0.1+9-24"/>
@@ -57,6 +57,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="60.0"/>
   </properties>
-  <testcase name="fetchItem" classname="se.kth.iv1350.pos.integration.ExternalInventorySystemTest" time="0.053"/>
+  <testcase name="fetchItem" classname="se.kth.iv1350.pos.integration.ExternalInventorySystemTest" time="0.032"/>
   <testcase name="doesItemExist" classname="se.kth.iv1350.pos.integration.ExternalInventorySystemTest" time="0"/>
 </testsuite>

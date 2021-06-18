@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import se.kth.iv1350.pos.controller.Controller;
 import se.kth.iv1350.pos.controller.OperationFailureException;
+import se.kth.iv1350.pos.integration.GroceryItemDTO;
 import se.kth.iv1350.pos.integration.InvalidItemIDException;
 import se.kth.iv1350.pos.integration.InventoryFailureException;
-import se.kth.iv1350.pos.util.LogHandler;
 import se.kth.iv1350.pos.util.TotalRevenueFileOutput;
 
 /**
@@ -17,23 +17,27 @@ public class View {
     private Controller controller;
     private double staticPayment = 100;
     private ErrorMessageHandler errorMessageHandler;
-    private LogHandler logHandler;
     
     /**
      * Creates a new instance, that uses the specified controller for all calls to other layers.
      * 
      * @param controller The controller to use for all calls to other layers.
+     * @throws IOException 
      */
     public View(Controller controller) throws IOException {
         this.controller = controller;
         this.errorMessageHandler = new ErrorMessageHandler();
-        this.logHandler = new LogHandler();
         controller.addObserver(new TotalRevenueView());
         controller.addObserver(new TotalRevenueFileOutput());
     }
     
     /**
      * Performs a fake sale, by calling all system operations in the controller.
+     * 
+     * @throws InvalidItemIDException
+     * @throws InventoryFailureException
+     * @throws SQLException
+     * @throws OperationFailureException 
      */
     public void runFakeExecution() throws InvalidItemIDException, InventoryFailureException, SQLException, OperationFailureException{
         controller.startSale();
@@ -73,9 +77,20 @@ public class View {
     
     private void fakeAddItem(int itemIdentifier, int quantity) {
         try {
-            controller.addNewItem(itemIdentifier, quantity);
+            GroceryItemDTO item = controller.addNewItem(itemIdentifier, quantity);
+            printItemDescription(item, quantity);
         } catch(InvalidItemIDException | OperationFailureException ex){
             handleException("Could not register item");
         }
+    }
+    
+    private void printItemDescription(GroceryItemDTO item, int quantity) {
+        System.out.println(
+                "Item: " + item.getItemName() + "\n" +
+                "Description: " + item.getItemDescription() + "\n" +        
+                "Quantity: " + quantity + " units\n" +
+                "Price: " + item.getPrice()*quantity + " Euro\n" +
+                "VAT: " + item.getVAT() + "%\n" 
+            );
     }
 }

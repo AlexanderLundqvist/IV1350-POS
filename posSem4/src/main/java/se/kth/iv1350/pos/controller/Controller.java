@@ -26,6 +26,7 @@ public class Controller {
     /**
      * Initializes the controler with the external systems. Only done once.
      * @param externalSystems contains the systems
+     * @throws IOException 
      */
     public Controller(ExternalSystemsHandler externalSystems) throws IOException{
         this.inventory = externalSystems.getInventory();
@@ -49,20 +50,16 @@ public class Controller {
      * 
      * @param itemIdentifier the unique identifying number for the item
      * @param quantity specifies how many of the item
-     */ 
-    public void addNewItem(int itemIdentifier, int quantity) throws InvalidItemIDException, OperationFailureException {
+     * @throws InvalidItemIDException
+     * @throws OperationFailureException 
+     */
+    public GroceryItemDTO addNewItem(int itemIdentifier, int quantity) throws InvalidItemIDException, OperationFailureException {
         try {
             GroceryItemDTO item = inventory.fetchItem(itemIdentifier);
             sale.addItem(item, quantity);
-            System.out.println(
-                "Item: " + inventory.fetchItem(itemIdentifier).getItemName() + "\n" +
-                "Description: " + inventory.fetchItem(itemIdentifier).getItemDescription() + "\n" +        
-                "Quantity: " + quantity + " units\n" +
-                "Price: " + inventory.fetchItem(itemIdentifier).getPrice()*quantity + " Euro\n" +
-                "VAT: " + inventory.fetchItem(itemIdentifier).getVAT() + "%\n" 
-            );
-        } catch(InvalidItemIDException | InventoryFailureException ex) {
-            logger.logException(ex); // Logs both types for now
+            return item;
+        } catch(InventoryFailureException ex) {
+            logger.logException(ex);
             throw new OperationFailureException("Could not register the item", ex);
         } 
     }

@@ -49,13 +49,6 @@ public class ExternalInventorySystem {
     
     /**
      * Finds item from inventory from input identifier, returns a properly
-     * created grocery item that can be used.
-     * @param itemIdentifier determines what item to fetch
-     * @return Returns a DTO for a grocery item
-     */
-    
-    /**
-     * Finds item from inventory from input identifier, returns a properly
      * created grocery item that can be used. 
      * @param itemIdentifier determines what item to fetch
      * @return Returns a DTO for a grocery item
