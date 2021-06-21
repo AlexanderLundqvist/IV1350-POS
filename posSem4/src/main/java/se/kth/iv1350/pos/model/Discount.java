@@ -33,7 +33,7 @@ public class Discount {
     public double calculateTotalDiscount() {
         double totalDiscount = 1;
         calculateAmountOfItems();
-        if(amountOfItems > 10) {
+        if(amountOfItems >= 10) {
             totalDiscount = 0.9;
         }
         return totalDiscount;

@@ -46,7 +46,7 @@ public class View {
         System.out.println("*************************************************");
         
         // Add normal item
-        fakeAddItem(11111, 2);
+        fakeAddItem(11111, 10);
 
         // Simulate DB error
         fakeAddItem(12121, 1);

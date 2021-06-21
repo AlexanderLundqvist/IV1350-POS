@@ -1,4 +1,4 @@
-[2021-06-21 15:18:36] Exception was thrown: <Could not connect to database>
+[2021-06-21 15:28:36] Exception was thrown: <Could not connect to database>
 se.kth.iv1350.pos.integration.InventoryFailureException: Could not connect to database
 	at se.kth.iv1350.pos.integration.ExternalInventorySystem.fetchItem(ExternalInventorySystem.java:63)
 	at se.kth.iv1350.pos.controller.Controller.addNewItem(Controller.java:58)
@@ -6,7 +6,7 @@ se.kth.iv1350.pos.integration.InventoryFailureException: Could not connect to da
 	at se.kth.iv1350.pos.view.View.runFakeExecution(View.java:52)
 	at se.kth.iv1350.pos.startup.Main.main(Main.java:30)
 
-[2021-06-21 15:18:36] Exception was thrown: <Could not connect to database>
+[2021-06-21 15:28:36] Exception was thrown: <Could not connect to database>
 se.kth.iv1350.pos.integration.InventoryFailureException: Could not connect to database
 	at se.kth.iv1350.pos.integration.ExternalInventorySystem.fetchItem(ExternalInventorySystem.java:63)
 	at se.kth.iv1350.pos.controller.Controller.addNewItem(Controller.java:58)
