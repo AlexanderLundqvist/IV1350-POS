@@ -54,8 +54,13 @@ public class View {
         // Trying to add an item that doesn't exist in the inventory
         fakeAddItem(12345, 1);
         
-        controller.addDiscount("197001021234");
-
+        if(controller.addDiscount("197001021234") == true) {
+            System.out.println("\n>>> Discount added!\n");
+        }
+        else {
+            System.out.println("\n>>> Customer isn't elegible for discount!\n");
+        }
+                
         System.out.println("\nTotal amount to pay is: " + controller.getPaymentDetails()+ " Euro");
 
         controller.endSale(staticPayment);

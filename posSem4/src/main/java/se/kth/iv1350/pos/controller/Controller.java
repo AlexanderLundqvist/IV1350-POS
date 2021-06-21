@@ -105,14 +105,15 @@ public class Controller {
     /**
      * Passes on discount request to the current sale
      * @param customerID is the customer SSN
+     * @return boolean
      */
-    public void addDiscount(String customerID) {
+    public boolean addDiscount(String customerID) {
         if (customerDatabase.doesCustomerExist(customerID) == true){
             sale.addDiscount(customerID);
-            System.out.println("\n>>> Discount added!\n");
+            return true;
         }
         else{
-            System.out.println("\n>>> Customer isn't elegible for discount!\n");
+            return false;
         } 
     }
     
